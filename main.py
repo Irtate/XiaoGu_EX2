@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import tkinter as tk
 
 def test(x):
+    file = open('data/txt/a.txt', 'w')
+
     location = 'data/test/beibao'+ str(x) + '.in'
     with open(location) as file_object:
         lines = file_object.readlines()
@@ -28,9 +30,14 @@ def test(x):
         r[i] = w[i] / v[i]
 
     print("按照价值比非递增排序输出:")
+    file.write("按照价值比非递增排序输出:")
     r.sort()
     for i in range(1, len(lines)):
-        print("第{:d}个物品的价值比为:{:.6f};".format(i,r[i]))
+        s = "第{:d}个物品的价值比为:{:.6f};".format(i,r[i])
+        file.write(s + "\n")
+        print(s)
+
+    file.close()
 
     # 绘制散点图
     plt.style.use('seaborn')
@@ -40,6 +47,7 @@ def test(x):
     plt.ylabel('价值', fontproperties='KaiTi')
     plt.title('体积与价值变量散点图', fontproperties='KaiTi')
     plt.show()
+
 
 
 if __name__ == '__main__':

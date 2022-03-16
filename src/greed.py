@@ -17,3 +17,8 @@ def greed(N, V, v, w):
     end = time.time()
 
     print("使用贪心算法所得的最高价值为{:d},运行时间为{:f}s;".format(f[N][V], end - start))
+
+    s = "使用贪心算法所得的最高价值为{:d},运行时间为{:f}s;".format(f[N][V], end - start) + "\n"
+    file = open('data/txt/greed.txt', 'w')
+    file.write(s)
+    file.close()
