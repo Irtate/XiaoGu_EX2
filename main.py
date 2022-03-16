@@ -12,6 +12,8 @@ def test(x):
 
     v = [0] * (len(lines))
     w = [0] * (len(lines))
+    r = [0.0] * (len(lines))
+
     V, N = list(map(int, lines[0].rstrip().split()))
     for i in range(1, len(lines)):
         V_, W_ = list(map(int, lines[i].rstrip().split()))
@@ -21,6 +23,14 @@ def test(x):
     dp(N, V, v, w)
     greed(N, V, v, w)
     dfs(N, V, v, w)
+
+    for i in range(1, len(lines)):
+        r[i] = w[i] / v[i]
+
+    print("按照价值比非递增排序输出:")
+    r.sort()
+    for i in range(1, len(lines)):
+        print("第{:d}个物品的价值比为:{:.6f};".format(i,r[i]))
 
     # 绘制散点图
     plt.style.use('seaborn')
