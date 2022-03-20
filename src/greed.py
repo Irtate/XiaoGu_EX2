@@ -9,9 +9,9 @@ def greed(N, V, v, w):
     f = [[0]*(V+1) for _ in range(N+1)]
     r = [0] * (N+1)
     for i in range(1, N+1):
-        r[i] = w[i] // v[i]
+        r[i] = w[i] / v[i]
 
-
+    r.sort()
 
     res = 0
     for i in range(1, N+1):

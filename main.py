@@ -22,6 +22,7 @@ def test(x):
         v[i] = V_
         w[i] = W_
 
+    print("请选择使用的算法[0:动态规划, 1:贪心算法; 2:回溯算法]:")
     op = int(input())
 
     if op == 0:
@@ -37,10 +38,12 @@ def test(x):
     print("按照价值比非递增排序输出:")
     file.write("按照价值比非递增排序输出:")
     r.sort()
-    for i in range(1, len(lines)):
-        s = "第{:d}个物品的价值比为:{:.6f};".format(i,r[i])
+    j = 1
+    for i in range(len(lines)-1, 1, -1):
+        s = "第{:d}个物品的价值比为:{:.6f};".format(j,r[i])
         file.write(s + "\n")
         print(s)
+        j = j + 1
 
     file.close()
 
@@ -75,6 +78,6 @@ if __name__ == '__main__':
     # btn1.pack()
     #
     # root.mainloop()
-    print("请输入需要测试的数据[0~9]：")
+    print("请输入需要测试的数据[0~9]:")
     x = int(input())
     test(x)
