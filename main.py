@@ -22,9 +22,14 @@ def test(x):
         v[i] = V_
         w[i] = W_
 
-    dp(N, V, v, w)
-    greed(N, V, v, w)
-    dfs(N, V, v, w)
+    op = int(input())
+
+    if op == 0:
+        dp(N, V, v, w)
+    elif op == 1:
+        greed(N, V, v, w)
+    else:
+        dfs(N, V, v, w)
 
     for i in range(1, len(lines)):
         r[i] = w[i] / v[i]
@@ -70,5 +75,6 @@ if __name__ == '__main__':
     # btn1.pack()
     #
     # root.mainloop()
+    print("请输入需要测试的数据[0~9]：")
     x = int(input())
     test(x)
