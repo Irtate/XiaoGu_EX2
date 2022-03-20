@@ -39,7 +39,7 @@ def test(x):
     file.write("按照价值比非递增排序输出:")
     r.sort()
     j = 1
-    for i in range(len(lines)-1, 1, -1):
+    for i in range(len(lines)-1, 0, -1):
         s = "第{:d}个物品的价值比为:{:.6f};".format(j,r[i])
         file.write(s + "\n")
         print(s)
